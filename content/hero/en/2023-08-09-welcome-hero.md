@@ -1,5 +1,5 @@
 ---
-title: "Welcome Hero "
+title: "Welcome Hero"
 heroTitle: ADAPT
 subtitle: Welcome
 tags:
