@@ -12,7 +12,7 @@ module.exports = function (config) {
 
  
   // Set pathPrefix for site
-  let pathPrefix = '/';
+  let pathPrefix = '/product-landing';
 
   const langs = ['en', 'es']
 
