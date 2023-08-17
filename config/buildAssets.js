@@ -4,7 +4,7 @@ const esbuild = require('esbuild');
 const { sassPlugin } = require('esbuild-sass-plugin');
 
 async function createAssetPaths() {
-  let pathPrefix = '/product-landing/'
+  let pathPrefix = '/product-landing'
 
   if (process.env.BASEURL) {
     pathPrefix = process.env.BASEURL
