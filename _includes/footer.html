@@ -5,20 +5,20 @@
         <div class="tablet:grid-col">
           <div class="logo-links">
             <a class="footer-logo media_link" href="https://cloud.gov">
-              <img src="{{footer.data.logo}}" class="width-mobile height-auto" alt="{{footer.data.alt}}">
+              <img src="{{footer.data.logo | url}}" class="width-mobile height-auto" alt="{{footer.data.alt}}">
             </a>
           </div>
         </div>
         <div class="tablet:grid-col">
           <div class="logo-links">
-            <form class="grid-row width-full tablet:flex-row flex-column tablet:grid-gap-lg" action="">
+            <form class="grid-row width-full tablet:flex-row tablet:grid-gap-lg" action="">
               <div class="tablet:grid-col-7 grid-col">
                 <label class="usa-label margin-top-0 text-base-lightest" for="email">{{footer.data.email}}</label>
-                <input class="usa-input" id="email" name="input-type-text" />
+                <input class="usa-input maxw-full" id="email" name="input-type-text" />
               </div>
 
-              <div class="tablet:grid-col-3 tablet:flex-align-self-end tablet:margin-top-0 margin-top-1">
-                <button class="usa-button">{{footer.data.subscribe}}</button>
+              <div class="tablet:grid-col-3 flex-align-self-end tablet:margin-top-0 margin-top-1">
+                <button class="usa-button width-full tablet:width-auto">{{footer.data.subscribe}}</button>
               </div>
             </form>
           </div>
@@ -52,7 +52,7 @@
 
                 <a class="text-base-lightest" href="{{i18nLink.data.url}}">
                   {% if i18nLink.data.icon %}
-                  <img src="{{i18nLink.data.icon}}" alt="{{i18nLink.data.iconAlt}}">
+                  <img src="{{i18nLink.data.icon | url}}" alt="{{i18nLink.data.iconAlt}}">
                   {% else %}
                   {{i18nLink.data.label}}
                   {% endif %}

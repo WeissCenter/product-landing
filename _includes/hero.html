@@ -36,13 +36,11 @@
     </div>
 
 
-    {{site | log}}
-   
     </div>
     {%if hero.data.image %}
       <div class="tablet:grid-col-5 usa-prose">
 
-          <img src="{{hero.data.image}}" alt="{{hero.data.alt}}">
+          <img src="{{hero.data.image | url}}" alt="{{hero.data.alt}}">
       
     
         <!-- {% image_with_class "./_img/desktop-phone.svg" "" "Weiss Center Logo" %} -->

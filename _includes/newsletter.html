@@ -14,14 +14,14 @@
   
       <div class="grid-row grid-gap-lg">
   
-        <form class="grid-row width-full tablet:flex-row flex-column tablet:grid-gap-lg" action="">
+        <form class="grid-row width-full tablet:grid-gap-lg" action="">
             <div class="tablet:grid-col-7 grid-col">
                 <label class="usa-label" for="email">{{newsletter.data.email}}</label>
-                <input class="usa-input" id="email" name="input-type-text" />
+                <input class="usa-input maxw-full" id="email" name="input-type-text" />
             </div>
 
-            <div class="tablet:grid-col-3 tablet:flex-align-self-end tablet:margin-top-0 margin-top-1">
-                <button class="usa-button">{{newsletter.data.subscribe}}</button>
+            <div class="tablet:grid-col-3 flex-align-self-end tablet:margin-top-0 margin-top-1">
+                <button class="usa-button width-full tablet:width-auto">{{newsletter.data.subscribe}}</button>
             </div>
           
         </form>
@@ -36,7 +36,7 @@
       {%if newsletter.data.image %}
         <div class="tablet:grid-col-4 usa-prose">
   
-            <img class="" src="{{newsletter.data.image}}" alt="{{newsletter.data.alt}}">
+            <img class="" src="{{newsletter.data.image | url}}" alt="{{newsletter.data.alt}}">
         
       
           <!-- {% image_with_class "./_img/desktop-phone.svg" "" "Weiss Center Logo" %} -->
