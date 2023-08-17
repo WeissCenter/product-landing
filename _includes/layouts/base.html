@@ -1,0 +1,41 @@
+{% comment %}
+This is used for just about every page. It provides the border around the content.
+The home page uses wide.html layout, since it extends full width of page
+{% endcomment %}
+
+<!DOCTYPE html>
+
+<html class="usa-typography" lang="{{page.lang}}">
+
+{% include "meta.html" %}
+
+<body class="usa-typography">
+
+  <rwc-accessibility-widget></rwc-accessibility-widget>
+
+  {% assign i18nHeaders = collections.header | lang %}
+
+  {%- for header in i18nHeaders -%}
+    {% include "menu.html" %}
+  {%- endfor %}
+
+
+
+  {{ content }}
+
+  {% assign i18nFooters = collections.footer | lang %}
+
+  {%- for footer in i18nFooters -%}
+    {% include "footer.html" %}
+  {%- endfor %}
+
+  {% comment %} Hide SVG Sprites {% endcomment %}
+  <div style="display: none;">
+    {% usa_icons_sprite %}
+    {% uswds_icons_sprite %}
+  </div>
+
+  {% include "scripts.html" %}
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+
+
+<header class="usa-header usa-header--basic" role="banner">
+
+  <div class="usa-nav-container">
+    <div class="usa-navbar">
+      <div class="usa-logo" id="extended-logo">
+        <img src="{{header.data.logo}}" alt="{{header.data.alt}}">
+      </div>
+
+      <button class="usa-menu-btn">Menu</button>
+    </div>
+    <nav
+      id="menu-navigation"
+      aria-label="Primary Navigation"
+      role="navigation"
+      class="usa-nav"
+    >
+
+
+
+    {% assign links = header.data.links | i18nContent : collections.headerLink | sortBy: "order"  %}
+
+    <ul class="usa-button-group grid-row grid-gap-2 padding-bottom-2">
+
+      {%- for link in links -%}
+
+      <li class="usa-button-group__item">
+        <a href="{{link.data.url}}" class="usa-button text-base-darkest {{link.data.style}}">{{link.data.label}}</a>
+      </li>
+  
+      {% endfor %}
+
+      </ul>
+
+
+
+  
+
+    </nav>
+  </div>
+
+</header>

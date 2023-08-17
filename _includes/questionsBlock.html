@@ -1,0 +1,26 @@
+<section class="grid-container usa-section bg-gray-5  ">
+    <div class="grid-row grid-gap-lg flex-align-center flex-justify-center">
+      <div class="tablet:grid-col-5">
+        <h2 class="font-heading-xl">{{questionBlock.data.sectionTitle}}</h2>
+        {{questionBlock.templateContent}}
+      </div>
+      <div class="grid-row tablet:grid-col-5 margin-top-2 tablet:margin-top-0 flex-justify-center">
+
+        <div class="grid-row grid-gap-lg">
+
+          {% assign i18nCTAs = collections.cta | lang %}
+          {%- for cta in questionBlock.data.ctas -%}
+            {%- for collectionCTA in i18nCTAs -%}
+              {%if cta == collectionCTA.data.title %}
+                <div class="grid-col-auto">
+                  <a href="{{collectionCTA.data.url}}" class="usa-button margin-top-1 margin-bottom-1 {{collectionCTA.data.style}}">{{collectionCTA.data.label}}</a>
+                </div>
+              {%endif%}
+            {%endfor%}
+          {%endfor%}
+    
+    
+        </div>
+      </div>
+    </div>
+</section>

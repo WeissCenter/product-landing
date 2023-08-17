@@ -1,0 +1,35 @@
+<section class="grid-container  usa-section usa-prose bg-gray-5">
+    <div class="grid-row flex-column flex-align-center">
+        <div class="grid-row flex-column flex-align-center">
+            <span class="font-heading-lg margin-top-0 tablet:margin-bottom-0 text-bold text-primary-dark">{{section.data.subtitle}}</span>
+            <h2 class="font-heading-xl margin-top-0 tablet:margin-bottom-0">{{section.data.sectionTitle}}</h2>
+        </div>
+        <div class="grid-row margin-top-6 tablet:grid-gap-lg">
+
+          {% assign i18nFeatureHighlights = collections.featureHighlight | lang %}
+
+            
+          {%- for highlight in section.data.highlights -%}
+            {%- for sectionHighlight in i18nFeatureHighlights -%}
+              {%if highlight == sectionHighlight.data.title %}
+                {% include "components/highlightSection.html"  %}
+              {%endif%}
+            {%endfor%}
+          {%endfor%}
+
+
+        </div>
+        <div class="grid-col margin-top-6">
+
+          {% assign i18nCTAs = collections.cta | lang %}
+            {%- for collectionCTA in i18nCTAs  -%}
+              {%if section.data.cta == collectionCTA.data.title %}
+     
+                <a href="{{collectionCTA.data.url}}" class="usa-button {{collectionCTA.data.style}}">{{collectionCTA.data.label}}</a>
+              {%endif%}
+            {%endfor%}
+
+
+        </div>
+      </div>
+</section>

@@ -1,0 +1,84 @@
+---
+layout: layouts/wide
+---
+
+
+{% assign i18nHeros = collections.hero | lang %}
+
+
+
+<!-- {% assign filename = "/" | append: page.lang | append: "/" %} -->
+
+
+
+{%- for hero in i18nHeros -%}
+    {% if hero.data.title == "Welcome Hero" %}
+     {% include "hero.html" first: true  %}
+    {% endif %}
+{%- endfor %}
+
+{%- for hero in i18nHeros -%}
+    {% if hero.data.title == "Test Drive Hero" %}
+        {% include "hero.html" %}
+    {% endif %}
+{%- endfor %}
+
+{%- for hero in i18nHeros -%}
+    {% if hero.data.title == "Staying Compliant Hero" %}
+     {% include "hero.html" %}
+    {% endif %}
+{%- endfor %}
+
+{%- for hero in i18nHeros -%}
+    {% if hero.data.title == "About This App Hero" %}
+    {% include "hero.html" %}
+    {% endif %}
+{%- endfor %}
+
+
+
+{% assign i18nFeatureHighlights = collections.featureHighlights | lang %}
+
+
+{%- for section in i18nFeatureHighlights -%}
+
+    {% include "featureHighlights.html" %}
+
+{%- endfor %}
+
+
+
+{% assign i18nFaqs = collections.faqs | lang %}
+
+
+{%- for section in i18nFaqs -%}
+
+    {% include "faqs.html" %}
+
+{%- endfor %}
+
+
+
+{% assign i18nQuestionBlocks = collections.questionSection | lang %}
+
+{%- for questionBlock in i18nQuestionBlocks -%}
+
+    {% include "questionsBlock.html" %}
+
+{%- endfor %}
+
+
+{% assign i18nNewsletters = collections.newsletterSection | lang %}
+
+{%- for newsletter in i18nNewsletters -%}
+
+    {% include "newsletter.html" %}
+
+{%- endfor %}
+
+
+
+
+
+
+

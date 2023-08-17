@@ -1,0 +1,41 @@
+<style>
+    .rwc-widget-menu-wrapper{
+        display: flex;
+    }
+
+    .expanded{
+        display: flex;
+    }
+
+    .closed{
+        display: none;
+    }
+
+    .menu-button{
+        border: none;
+        cursor: pointer;
+        background: none;
+    }
+</style>
+
+<div role="status"></div>
+
+
+<div class="rwc-widget-menu-wrapper margin-2">
+
+    <button class="usa-button padding-2 width-15 margin-right-0  text-base-lightest" >
+        <div class="display-flex flex-column flex-align-center flex-justify-center">
+            <img class="grid-row" src="static/a11yWidget/assets/person.svg" alt="">
+            <span class="grid-row margin-top-2">Accessibility</span>
+        </div>
+    </button>
+    
+    <div id="a11yMenu" role="menu" class="grid-row closed border-primary bg-primary-lighter border-top-05 border-right-05 radius-right-lg" aria-expanded="false">
+        
+
+    
+    
+    </div>
+
+</div>
+

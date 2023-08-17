@@ -1,0 +1,20 @@
+// main.scss
+
+
+// Import accessibility variables
+
+// Import text size styles using @forward
+@use './font-size' as *;
+@import '../accessibility-variables';
+
+
+// Define the nested selector
+// TODO: break this into each category of elements that can be impacted by font size and then use a mixin to apply the font size to each element based on their token values for $font-family and $scale that have been preset within USWDS
+@each $token,
+$scale in $font-size-scale {
+    [data-accessibility-font-size="#{$token}"] {
+        .usa-typography {
+            @include font-size-scale($scale);
+        }
+    }
+}

@@ -1,0 +1,44 @@
+// _font-size.scss
+
+// Import USWDS variables
+@use "uswds-core"as *;
+
+// Function to calculate font size based on USWDS utility-font()
+@function font-size-utility($scale, $family, $size) {
+    @return calc(utility-font($family, $size) * $scale);
+}
+
+@mixin font-size-scale($scale) {
+
+    // Apply font size to all headings and body text providing the proper variables for the potentially dynamic font family + font size token combination
+    h1 {
+        font-size: font-size-utility($scale, 'heading', $theme-h1-font-size);
+      }
+      
+     h2 {
+        font-size: font-size-utility($scale, 'heading', $theme-h2-font-size);
+      }
+
+      h3 {
+        font-size: font-size-utility($scale, 'heading', $theme-h3-font-size);
+      }
+
+        h4 {
+            font-size: font-size-utility($scale, 'heading', $theme-h4-font-size);
+        }
+
+        h5 {
+            font-size: font-size-utility($scale, 'heading', $theme-h5-font-size);
+        }
+
+        h6 {
+            font-size: font-size-utility($scale, 'body', $theme-h6-font-size);
+        }
+        
+        p, 
+        a {
+            font-size: font-size-utility($scale, 'body', $theme-body-font-size);
+        }
+
+
+}

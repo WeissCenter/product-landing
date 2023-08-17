@@ -1,0 +1,227 @@
+backend:
+  name: github
+  repo: WeissCenter/poc-backend
+  preview_context: pages/build
+  branch: main
+  use_graphql: true
+
+publish_mode: editorial_workflow
+media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/static/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+local_backend: true
+
+i18n:
+  structure: multiple_folders
+
+  # Required - a list of locales to show in the editor UI
+  locales: [en, es]
+
+  # Optional, defaults to the first item in locales.
+  # The locale to be used for fields validation and as a baseline for the entry.
+  default_locale: en
+
+
+collections:
+  - label: Hero
+    i18n: true
+    name: hero
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/hero/
+    fields:
+      - {label: 'Title', name: 'title', i18n: true, widget: 'string' }
+      - {label: 'Hero Title', name: 'heroTitle', i18n: true, widget: 'string' }
+      - {label: 'Sub Title', name: 'subtitle', i18n: true, widget: 'string' }
+      - {label: 'Tags', name: 'tags', widget: 'hidden', i18n: true, default: ['hero']}
+      - {label: 'Body', name: 'body', i18n: true, widget: 'markdown' }
+      - {label: 'Background', name: 'background', i18n: true, widget: 'string', default: 'bg-white', hint: 'For valid background colors, please visit the USWDS color options: https://designsystem.digital.gov/utilities/color/#background-color' }
+      - {label: 'Image', name: 'image', i18n: true, widget: 'image'}
+      - {label: 'Image Alt Text', name: 'alt', i18n: true, widget: 'string'}
+      - {label: 'Inverse', name: 'inverse', i18n: true, widget: 'boolean', default: false }
+      - {label: 'Call To Actions', i18n: true, multiple: true, max: 2, name: 'ctas', widget: 'relation', collection: 'cta', value_field: 'title', display_fields: ["title"], search_fields: ["title", "label"]}
+  - label: Call To Action
+    name: cta
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/cta/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['cta']}
+      - {label: 'Label', i18n: true, name: 'label', widget: 'string' }
+      - {label: 'URL', i18n: true, name: 'url', widget: 'string' }
+      - {label: 'Style', i18n: true, name: 'style', widget: 'string', hint: 'For valid Call to Action Styles, please visit the USWDS button component options (can add multiple seperated by spaces for coloring, etc): https://designsystem.digital.gov/components/button/', default: ''  }
+  - label: Feature Highlights Section
+    name: featureHighlightSection
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/featureHighlights/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['featureHighlights']}
+      - {label: 'Section Title', i18n: true, name: 'sectionTitle', widget: 'string' }
+      - {label: 'SubTitle', i18n: true, name: 'subtitle', widget: 'string' }
+      - {label: 'Highlights', i18n: true, multiple: true, max: 4, name: 'highlights', widget: 'relation', collection: 'featureHighlight', value_field: 'title', display_fields: ["title"], search_fields: ["title", "highlight"]}
+      - {label: 'Call To Action', i18n: true, name: 'cta', widget: 'relation', collection: 'cta', value_field: 'title', display_fields: ["title"], search_fields: ["title", "label"]}
+  - label: Feature Highlight
+    name: featureHighlight
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/featureHighlight/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['featureHighlight']}
+      - {label: 'Highlight', i18n: true, name: 'highlight', widget: 'string' }
+      - {label: 'Body', i18n: true, name: 'body', widget: 'markdown' }
+      - {label: 'Icon', i18n: true, name: 'icon', widget: 'image' }
+      - {label: 'Icon Alt Text', i18n: true, name: 'alt', widget: 'string' }
+  - label: FAQ Section
+    name: faqs
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/faqs/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['faqs']}
+      - {label: 'SubTitle', i18n: true, name: 'subtitle', widget: 'string' }
+      - {label: 'Section Title', i18n: true, name: 'sectionTitle', widget: 'string' }
+      - {label: 'FAQs', i18n: true, multiple: true, name: 'faqs', widget: 'relation', collection: 'faq', value_field: 'title', display_fields: ["title"], search_fields: ["title", "question", "body"]}
+  - label: FAQ
+    name: faq
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/faq/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['faq']}
+      - {label: 'Question', i18n: true, name: 'question', widget: 'string' }
+      - {label: 'Body', i18n: true, name: 'body', widget: 'markdown' }
+      - {label: 'Order', i18n: true, name: 'order', widget: 'number' }
+  - label: Questions Section
+    name: questionSection
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/questionSection/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['questionSection']}
+      - {label: 'Section Title', i18n: true, name: 'sectionTitle', widget: 'string' }
+      - {label: 'Body', i18n: true, name: 'body', widget: 'markdown' }
+      - {label: 'Call To Actions', i18n: true, multiple: true, max: 2, name: 'ctas', widget: 'relation', collection: 'cta', value_field: 'title', display_fields: ["title"], search_fields: ["title", "label"]}
+  - label: Newsletter Section
+    name: newsletterSection
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/newsletterSection/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['newsletterSection']}
+      - {label: 'Section Title', i18n: true, name: 'sectionTitle', widget: 'string' }
+      - {label: 'Sub Title', name: 'subtitle', i18n: true, widget: 'string' }
+      - {label: 'Body', i18n: true, name: 'body', widget: 'markdown' }
+      - {label: 'Email Field Label', i18n: true, name: 'email', widget: 'string'}
+      - {label: 'Subscribe CTA Label', i18n: true, name: 'subscribe', widget: 'string'}
+      - {label: 'Image', name: 'image', i18n: true, widget: 'image'}
+      - {label: 'Image Alt Text', name: 'alt', i18n: true, widget: 'string'}
+  - label: Footer
+    name: footer
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/footer/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['footer']}
+      - {label: 'Logo', i18n: true, name: 'logo', widget: 'image'}
+      - {label: 'Newsletter Email Label', i18n: true, name: 'email', widget: 'string'}
+      - {label: 'Copyright', i18n: true, name: 'copyright', widget: 'string'}
+      - {label: 'Subscribe CTA Label', i18n: true, name: 'subscribe', widget: 'string'}
+      - {label: 'Logo Alt Text', i18n: true, name: 'logoAlt', widget: 'string'}
+      - {label: 'Link Columns', i18n: true, multiple: true, name: 'linkColumns', widget: 'relation', collection: 'footerLinkColumn', value_field: 'title', display_fields: ["title"], search_fields: ["title", "label"]}
+  - label: Footer Link Column
+    name: footerLinkColumn
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/footerLinkColumn/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['footerLinkColumn']}
+      - {label: 'Column Title', i18n: true, name: 'columnTitle', widget: 'string'}
+      - {label: 'Links', i18n: true, multiple: true, name: 'links', widget: 'relation', collection: 'footerLink', value_field: 'title', display_fields: ["title"], search_fields: ["title", "label"]}
+      - {label: 'Horizontal', i18n: true, name: 'horizontal', widget: 'boolean'}
+      - {label: 'Order', i18n: true, name: 'order', widget: 'number'}
+  - label: Footer Link
+    name: footerLink
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/footerLink/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['footerLink']}
+      - {label: 'Label', i18n: true, name: 'label', widget: 'string'}
+      - {label: 'Icon', i18n: true, name: 'icon', widget: 'image'}
+      - {label: 'Alt Text', i18n: true, name: 'iconAltText', widget: 'string'}
+      - {label: 'URL', i18n: true, name: 'url', widget: 'string'}
+      - {label: 'Order', i18n: true, name: 'order', widget: 'number'}
+  - label: Header
+    name: header
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/header/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['header']}
+      - {label: 'Logo', i18n: true, name: 'logo', widget: 'image'}
+      - {label: 'Logo Alt Text', i18n: true, name: 'logoAlt', widget: 'string'}
+      - {label: 'Links', i18n: true, multiple: true, name: 'links', widget: 'relation', collection: 'headerLink', value_field: 'title', display_fields: ["title"], search_fields: ["title", "label"]}
+  - label: Header Link
+    name: headerLink
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/headerLink/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['headerLink']}
+      - {label: 'Label', i18n: true, name: 'label', widget: 'string'}
+      - {label: 'URL', i18n: true, name: 'url', widget: 'string'}
+      - {label: 'Link Style', required: false, i18n: true, name: 'style', widget: 'string', hint: "For valid link styles, please visit the USWDS button component options (can add multiple seperated by spaces for coloring, etc): https://designsystem.digital.gov/components/button/"}
+      - {label: 'Order', i18n: true, name: 'order', widget: 'number'}
+
+
+  # - label: Testimonials
+  #   name: testimonial
+  #   create: true
+  #   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  #   folder: testimonial/
+  #   fields:
+  #     - {label: 'Title', name: 'title', widget: 'string'}
+  #     - {label: 'Tags', name: 'tags', widget: 'hidden', default: ['testimonial']}
+  #     - {label: 'Section Title', name: 'sectionTitle', widget: 'string' }
+  #     - {label: 'Sub Title', name: 'subtitle', widget: 'string' }
+  #     - {label: 'Body', name: 'body', widget: 'markdown' }
+  #     - {label: 'Testimonials', multiple: true,  name: 'testimonials', widget: 'relation', collection: 'testimonialItem', value_field: 'title', display_fields: ["title"], search_fields: ["title", "department"]}
+  # - label: Testimonial Item
+  #   name: testimonialItem
+  #   create: true
+  #   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  #   folder: testimonialItem/
+  #   fields:
+  #     - {label: 'Title', name: 'title', widget: 'string'}
+  #     - {label: 'Tags', name: 'tags', widget: 'hidden', default: ['testimonialItem']}
+  #     - {label: 'Icon', name: 'icon', widget: 'image'}
+  #     - {label: 'Body', name: 'body', widget: 'markdown'}
+  #     - {label: 'Agent', name: 'agent', widget: 'string'}
+  #     - {label: 'Agent Icon', name: 'agentIcon', widget: 'image'}
+  #     - {label: 'Agent Role', name: 'agentRole', widget: 'string'}
+  #     - {label: 'Department', name: 'department', widget: 'string'}

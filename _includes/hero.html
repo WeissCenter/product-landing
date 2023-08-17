@@ -1,0 +1,52 @@
+<section class="grid-container usa-section usa-prose {{hero.data.background}}">
+
+  <div class="grid-row flex-justify">
+    {% if hero.data.inverse %}
+      <div class="tablet:grid-col-6 order-last">
+    {% else %}
+      <div class="tablet:grid-col-6">
+    {% endif %}
+
+   
+    <span class="font-heading-lg text-uppercase margin-top-0 tablet:margin-bottom-0 text-bold text-primary-dark">{{hero.data.subtitle}}</span>
+
+    {% if first %}
+      <h1 class="font-heading-3xl text-wrap  margin-top-0 tablet:margin-bottom-0">{{hero.data.heroTitle}}</h1>
+    {% else %}
+      <h2 class="font-heading-xl text-wrap margin-top-0 tablet:margin-bottom-0">{{hero.data.heroTitle}}</h2>
+    {% endif %}
+
+
+    {{hero.templateContent}}
+
+    <div class="grid-row grid-gap-lg">
+
+      {% assign i18nCTAs = collections.cta | lang %}
+      {%- for cta in hero.data.ctas -%}
+        {%- for collectionCTA in i18nCTAs -%}
+          {%if cta == collectionCTA.data.title %}
+            <div class="grid-col-auto">
+              <a href="{{collectionCTA.data.url}}" class="usa-button tablet:margin-0 margin-top-1 margin-bottom-1 {{collectionCTA.data.style}}">{{collectionCTA.data.label}}</a>
+            </div>
+          {%endif%}
+        {%endfor%}
+      {%endfor%}
+
+
+    </div>
+
+
+
+   
+    </div>
+    {%if hero.data.image %}
+      <div class="tablet:grid-col-5 usa-prose">
+
+          <img src="{{hero.data.image}}" alt="{{hero.data.alt}}">
+      
+    
+        <!-- {% image_with_class "./_img/desktop-phone.svg" "" "Weiss Center Logo" %} -->
+      </div>
+    {%endif%}
+  </div>
+</section>

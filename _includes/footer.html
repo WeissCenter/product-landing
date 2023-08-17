@@ -1,0 +1,87 @@
+<footer class="usa-footer site-footer" role="contentinfo">
+  <div class="footer-section-bottom bg-base-dark">
+    <div class="grid-container">
+      <div class="grid-row padding-top-6 padding-bottom-6 border-bottom border-base-light flex-align-end">
+        <div class="tablet:grid-col">
+          <div class="logo-links">
+            <a class="footer-logo media_link" href="https://cloud.gov">
+              <img src="{{footer.data.logo}}" class="width-mobile height-auto" alt="{{footer.data.alt}}">
+            </a>
+          </div>
+        </div>
+        <div class="tablet:grid-col">
+          <div class="logo-links">
+            <form class="grid-row width-full tablet:flex-row flex-column tablet:grid-gap-lg" action="">
+              <div class="tablet:grid-col-7 grid-col">
+                <label class="usa-label margin-top-0 text-base-lightest" for="email">{{footer.data.email}}</label>
+                <input class="usa-input" id="email" name="input-type-text" />
+              </div>
+
+              <div class="tablet:grid-col-3 tablet:flex-align-self-end tablet:margin-top-0 margin-top-1">
+                <button class="usa-button">{{footer.data.subscribe}}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div role="navigation" class="grid-row padding-top-6 padding-bottom-6 border-bottom border-base-light ">
+
+        {% assign columns = footer.data.linkColumns | i18nContent : collections.footerLinkColumn | sortBy: "order" %}
+
+
+
+        {%- for i18nColumn in columns -%}
+
+
+        <div class="tablet:grid-col">
+          <span class="text-base-lightest text-bold">{{i18nColumn.data.columnTitle}}</span>
+          {% if i18nColumn.data.horizontal %}
+          <ul class="usa-list grid-row grid-gap-lg margin-top-2 usa-list--unstyled">
+            {% else %}
+            <ul class="usa-list margin-top-2 usa-list--unstyled">
+
+              {% endif %}
+
+              {% assign links = i18nColumn.data.links | i18nContent : collections.footerLink | sortBy: "order" %}
+
+              {%- for i18nLink in links -%}
+
+
+
+              <li class="margin-top-1 margin-bottom-1">
+
+                <a class="text-base-lightest" href="{{i18nLink.data.url}}">
+                  {% if i18nLink.data.icon %}
+                  <img src="{{i18nLink.data.icon}}" alt="{{i18nLink.data.iconAlt}}">
+                  {% else %}
+                  {{i18nLink.data.label}}
+                  {% endif %}
+
+                </a>
+
+              </li>
+
+
+
+              {% endfor %}
+
+            </ul>
+
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+
+
+      </div>
+
+      <div class="grid-row padding-top-6 padding-bottom-6 text-base-lightest">
+        {{ site.title }} @ {{page.date | year}}. {{footer.data.copyright}}
+      </div>
+    </div>
+  </div>
+</footer>

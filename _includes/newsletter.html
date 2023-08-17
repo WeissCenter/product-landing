@@ -1,0 +1,46 @@
+<section class="grid-container usa-section usa-prose {{newsletter.data.background}}">
+
+    <div class="grid-row flex-justify">
+
+        <div class="tablet:grid-col-7 order-last">
+
+
+     
+      <span class="font-heading-lg text-uppercase margin-top-0 tablet:margin-bottom-0 text-bold text-primary-dark">{{newsletter.data.subtitle}}</span>
+  
+     <h2 class="font-heading-xl margin-top-0 tablet:margin-bottom-0">{{newsletter.data.sectionTitle}}</h2>
+
+      {{newsletter.templateContent}}
+  
+      <div class="grid-row grid-gap-lg">
+  
+        <form class="grid-row width-full tablet:flex-row flex-column tablet:grid-gap-lg" action="">
+            <div class="tablet:grid-col-7 grid-col">
+                <label class="usa-label" for="email">{{newsletter.data.email}}</label>
+                <input class="usa-input" id="email" name="input-type-text" />
+            </div>
+
+            <div class="tablet:grid-col-3 tablet:flex-align-self-end tablet:margin-top-0 margin-top-1">
+                <button class="usa-button">{{newsletter.data.subscribe}}</button>
+            </div>
+          
+        </form>
+  
+  
+      </div>
+  
+  
+  
+     
+      </div>
+      {%if newsletter.data.image %}
+        <div class="tablet:grid-col-4 usa-prose">
+  
+            <img class="" src="{{newsletter.data.image}}" alt="{{newsletter.data.alt}}">
+        
+      
+          <!-- {% image_with_class "./_img/desktop-phone.svg" "" "Weiss Center Logo" %} -->
+        </div>
+      {%endif%}
+    </div>
+  </section>

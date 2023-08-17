@@ -1,0 +1,46 @@
+<section class="grid-container  usa-section usa-prose bg-white">
+    <div class="grid-row flex-column flex-align-center">
+        <div class="grid-row flex-column flex-align-center">
+            <span class="font-heading-lg margin-top-0 tablet:margin-bottom-0 text-bold text-primary-dark">{{section.data.subtitle}}</span>
+            <h2 class="font-heading-xl margin-top-0 tablet:margin-bottom-0">{{section.data.sectionTitle}}</h2>
+        </div>
+        <div class="grid-col margin-top-6">
+
+          {% assign i18nFAQs = collections.faq | lang | sortBy: "order" %}
+
+          
+          {%- for faq in section.data.faqs -%}
+
+            {%- for i18nFaq in i18nFAQs -%}
+
+            {% if faq == i18nFaq.data.title %}
+
+              <div class="usa-accordion">
+                <h3 class="usa-accordion__heading">
+                  <button
+                    type="button"
+                    class="usa-accordion__button"
+                    aria-expanded="false"
+                    aria-controls="{{i18nFaq.data.question}}"
+                  >
+                    {{i18nFaq.data.question}}
+                  </button>
+                </h3>
+                <div id="{{i18nFaq.data.question}}" class="usa-accordion__content usa-prose">
+                  {{i18nFaq.templateContent}}
+                </div>
+
+              </div>
+
+            {%endif%}
+
+          {%- endfor %}
+
+          {%- endfor %}
+
+
+
+
+        </div>
+      </div>
+</section>
