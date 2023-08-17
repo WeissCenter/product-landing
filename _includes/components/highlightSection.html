@@ -1,7 +1,7 @@
 <div class="tablet:grid-col tablet:margin-top-0 margin-top-2">
     <div class="border border-gray-15 padding-2 height-full">
         <div class="grid-row flex-column flex-align-center ">
-            <img src="{{sectionHighlight.data.icon}}" alt="{{sectionHighlight.data.alt}}">
+            <img src="{{sectionHighlight.data.icon | url}}" alt="{{sectionHighlight.data.alt}}">
         </div>
         <h3>{{sectionHighlight.data.highlight}}</h3>
         {{sectionHighlight.templateContent}}
