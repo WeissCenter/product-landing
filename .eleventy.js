@@ -12,7 +12,7 @@ module.exports = function (config) {
 
  
   // Set pathPrefix for site
-  let pathPrefix = '/product-landing';
+  let pathPrefix = '/product-landing/';
 
   const langs = ['en', 'es']
 
@@ -164,10 +164,10 @@ module.exports = function (config) {
 
  
 
-  // If BASEURL env variable exists, update pathPrefix to the BASEURL
-  if (process.env.BASEURL) {
-    pathPrefix = process.env.BASEURL
-  }
+  // // If BASEURL env variable exists, update pathPrefix to the BASEURL
+  // if (process.env.BASEURL) {
+  //   pathPrefix = process.env.BASEURL
+  // }
 
   return {
     // Control which files Eleventy will process
