@@ -164,10 +164,10 @@ module.exports = function (config) {
 
  
 
-  // // If BASEURL env variable exists, update pathPrefix to the BASEURL
-  // if (process.env.BASEURL) {
-  //   pathPrefix = process.env.BASEURL
-  // }
+  // If BASEURL env variable exists, update pathPrefix to the BASEURL
+  if (process.env.BASEURL) {
+    pathPrefix = process.env.BASEURL
+  }
 
   return {
     // Control which files Eleventy will process
