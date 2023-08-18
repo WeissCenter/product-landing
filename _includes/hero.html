@@ -25,7 +25,7 @@
       {%- for cta in hero.data.ctas -%}
         {%- for collectionCTA in i18nCTAs -%}
           {%if cta == collectionCTA.data.title %}
-            <div class="grid-col-auto">
+            <div class="grid-col-auto width-full">
               <a href="{{collectionCTA.data.url}}" class="usa-button tablet:margin-0 margin-top-1 margin-bottom-1 {{collectionCTA.data.style}}">{{collectionCTA.data.label}}</a>
             </div>
           {%endif%}
