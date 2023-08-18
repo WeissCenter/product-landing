@@ -10,6 +10,9 @@ The home page uses wide.html layout, since it extends full width of page
 {% include "meta.html" %}
 
 <body class="usa-typography">
+  <a class="skip-to-content-link bg-primary text-base-lightest" href="#main-content">
+    Skip to content
+  </a>
 
   <rwc-accessibility-widget></rwc-accessibility-widget>
 
@@ -29,11 +32,11 @@ The home page uses wide.html layout, since it extends full width of page
     {% include "footer.html" %}
   {%- endfor %}
 
-  {% comment %} Hide SVG Sprites {% endcomment %}
+  <!-- {% comment %} Hide SVG Sprites {% endcomment %}
   <div style="display: none;">
     {% usa_icons_sprite %}
     {% uswds_icons_sprite %}
-  </div>
+  </div> -->
 
   {% include "scripts.html" %}
 </body>

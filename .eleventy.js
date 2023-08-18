@@ -61,6 +61,10 @@ module.exports = function (config) {
     return i18nContent?.filter((item) => item.page.filePathStem.includes(`/${this.page.lang}/`) && relations?.includes(item.data.title))
   })
 
+  config.addFilter('default', function(value, defaultValue){
+    return value || defaultValue
+  })
+
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   config.addFilter('htmlDateString', (dateObj) => {

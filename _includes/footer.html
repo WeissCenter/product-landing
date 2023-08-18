@@ -4,8 +4,8 @@
       <div class="grid-row padding-top-6 padding-bottom-6 border-bottom border-base-light flex-align-end">
         <div class="tablet:grid-col">
           <div class="logo-links">
-            <a class="footer-logo media_link" href="https://cloud.gov">
-              <img src="{{footer.data.logo | url}}" class="width-mobile height-auto" alt="{{footer.data.alt}}">
+            <a class="footer-logo media_link" href="">
+              <img src="{{footer.data.logo | url}}" class="width-mobile height-auto" alt="{{footer.data.logoAlt}}">
             </a>
           </div>
         </div>
@@ -13,8 +13,8 @@
           <div class="logo-links">
             <form class="grid-row width-full tablet:flex-row tablet:grid-gap-lg" action="">
               <div class="tablet:grid-col-7 grid-col">
-                <label class="usa-label margin-top-0 text-base-lightest" for="email">{{footer.data.email}}</label>
-                <input class="usa-input maxw-full" id="email" name="input-type-text" />
+                <label class="usa-label margin-top-0 text-base-lightest" for="footerEmail">{{footer.data.email}}</label>
+                <input class="usa-input maxw-full" id="footerEmail" name="input-type-text" />
               </div>
 
               <div class="tablet:grid-col-3 flex-align-self-end tablet:margin-top-0 margin-top-1">
@@ -52,7 +52,7 @@
 
                 <a class="text-base-lightest" href="{{i18nLink.data.url}}">
                   {% if i18nLink.data.icon %}
-                  <img src="{{i18nLink.data.icon | url}}" alt="{{i18nLink.data.iconAlt}}">
+                  <img src="{{i18nLink.data.icon | url}}" alt="{{i18nLink.data.iconAlt | default: i18nLink.data.label}}">
                   {% else %}
                   {{i18nLink.data.label}}
                   {% endif %}

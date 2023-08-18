@@ -100,6 +100,8 @@ const setup = async () => {
 
 				button.textContent = option.label
 
+				button.role = "menuitem"
+
 				button.addEventListener('click', option.callback.bind(this))
 
 				root.appendChild(button)
