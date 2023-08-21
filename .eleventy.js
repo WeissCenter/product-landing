@@ -114,6 +114,7 @@ module.exports = function (config) {
   });
 
   config.addFilter('lang', function(collection) {
+  
     return (collection || []).filter((item) =>  item.page.filePathStem.includes(`/${this.page.lang}/`));
   })
 
