@@ -169,8 +169,8 @@ collections:
       - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
       - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['footerLink']}
       - {label: 'Label', i18n: true, name: 'label', widget: 'string'}
-      - {label: 'Icon', i18n: true, name: 'icon', widget: 'image'}
-      - {label: 'Alt Text', i18n: true, name: 'iconAltText', widget: 'string'}
+      - {label: 'Icon', i18n: true, required: false, name: 'icon', widget: 'image'}
+      - {label: 'Alt Text', i18n: true, required: false, name: 'iconAltText', widget: 'string'}
       - {label: 'URL', i18n: true, name: 'url', widget: 'string'}
       - {label: 'Order', i18n: true, name: 'order', widget: 'number'}
   - label: Header
