@@ -1,8 +1,10 @@
 ---
-title: Fifty Four
+title: Privacy Policy
 tags:
   - footerLink
-label: Fifty Four
-url: "#"
+label: Privacy Policy
+icon: null
+iconAltText: null
+url: privacy-policy/
 order: 4
 ---
