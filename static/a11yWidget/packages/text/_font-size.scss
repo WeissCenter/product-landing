@@ -11,13 +11,38 @@
 @mixin font-size-scale($scale) {
 
     // Apply font size to all headings and body text providing the proper variables for the potentially dynamic font family + font size token combination
+
+
+
+
+
+    [class*="font-heading-lg"]{
+        font-size: font-size-utility($scale, 'heading', $theme-type-scale-lg);
+    }
+
+    [class*="font-heading-xl"]{
+        font-size: font-size-utility($scale, 'heading', $theme-type-scale-xl);
+    }
+
+
+    [class*="font-heading-2xl"]{
+        font-size: font-size-utility($scale, 'heading', $theme-type-scale-2xl);
+    }
+
+
+    [class*="font-heading-3xl"]{
+        font-size: font-size-utility($scale, 'heading', $theme-type-scale-3xl);
+    }
+
+
+
     h1 {
         font-size: font-size-utility($scale, 'heading', $theme-h1-font-size);
       }
       
-     h2 {
-        font-size: font-size-utility($scale, 'heading', $theme-h2-font-size);
-      }
+    //  h2 {
+    //     font-size: font-size-utility($scale, 'heading', $theme-h2-font-size);
+    //   }
 
       h3 {
         font-size: font-size-utility($scale, 'heading', $theme-h3-font-size);
