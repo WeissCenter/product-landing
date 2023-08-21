@@ -5,7 +5,9 @@
   <div class="usa-nav-container">
     <div class="usa-navbar">
       <div class="usa-logo margin-left-1" id="extended-logo">
-        <img class="width-card-lg tablet:width-mobile desktop:width-full" src="{{header.data.logo | url}}" alt="{{header.data.alt}}">
+        <a href="{{'/' | append: page.lang | append: '/' | url}}">
+          <img class="width-card-lg tablet:width-mobile desktop:width-full" src="{{header.data.logo | url}}" alt="{{header.data.alt}}">
+        </a>
       </div>
 
       <button class="usa-menu-btn">Menu</button>
