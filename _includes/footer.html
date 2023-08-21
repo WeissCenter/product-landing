@@ -50,7 +50,7 @@
 
               <li class="margin-top-1 margin-bottom-1">
 
-                <a class="text-base-lightest" href="{{i18nLink.data.url}}">
+                <a class="text-base-lightest" href="{{i18nLink.data.url | url}}">
                   {% if i18nLink.data.icon %}
                   <img src="{{i18nLink.data.icon | url}}" alt="{{i18nLink.data.iconAlt | default: i18nLink.data.label}}">
                   {% else %}

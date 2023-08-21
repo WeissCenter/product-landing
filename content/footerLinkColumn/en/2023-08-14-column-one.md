@@ -7,6 +7,7 @@ links:
   - Accessibility Statement
   - VPAT
   - Security Certification
-  - Fifty Four
+  - Privacy Policy
+horizontal: false
 order: 1
 ---
