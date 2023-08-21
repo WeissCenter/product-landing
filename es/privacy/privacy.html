@@ -1,0 +1,13 @@
+---
+permalink: /es/privacy-policy/index.html
+layout: layouts/wide
+title: Privacy Policy
+---
+
+{% assign policies = collections.privacyPolicy | lang %}
+
+{%- for statement in policies -%}
+    {% include "statement.html"  %}
+{%endfor%}
+
+

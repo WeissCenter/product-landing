@@ -3,6 +3,6 @@ title: Privacy Policy
 tags:
   - footerLink
 label: Privacy Policy
-url: privacy-policy/
+url: /en/privacy-policy/
 order: 4
 ---

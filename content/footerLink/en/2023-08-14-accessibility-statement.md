@@ -3,6 +3,6 @@ title: Accessibility Statement
 tags:
   - footerLink
 label: Accessibility Statement
-url: accessibility/
+url: /en/accessibility/
 order: 1
 ---

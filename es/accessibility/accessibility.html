@@ -1,0 +1,13 @@
+---
+permalink: /es/accessibility/index.html
+layout: layouts/wide
+title: Accessibility Statement
+---
+
+{% assign a11yStatements = collections.a11yStatement | lang %}
+
+{%- for statement in a11yStatements -%}
+    {% include "statement.html"  %}
+{%endfor%}
+
+

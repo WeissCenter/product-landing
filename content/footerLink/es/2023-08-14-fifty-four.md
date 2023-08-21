@@ -5,6 +5,6 @@ tags:
 label: Privacy Policy
 icon: null
 iconAltText: null
-url: privacy-policy/
+url: /es/privacy-policy/
 order: 4
 ---
