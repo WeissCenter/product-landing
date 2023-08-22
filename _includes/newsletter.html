@@ -14,14 +14,14 @@
   
       <div class="grid-row grid-gap-lg">
   
-        <form class="grid-row width-full tablet:grid-gap-lg" action="">
+        <form id="newsletterForm" class="grid-row width-full tablet:grid-gap-lg">
             <div class="tablet:grid-col-7 grid-col">
                 <label class="usa-label" for="email">{{newsletter.data.email}}</label>
-                <input class="usa-input maxw-full" id="email" name="input-type-text" />
+                <input class="usa-input maxw-full" id="email" type="email" required name="input-type-text" />
             </div>
 
             <div class="tablet:grid-col-3 flex-align-self-end tablet:margin-top-0 margin-top-1">
-                <button class="usa-button width-full tablet:width-auto">{{newsletter.data.subscribe}}</button>
+                <button disabled id="emailSubmitButton" class="usa-button width-full tablet:width-auto">{{newsletter.data.subscribe}}</button>
             </div>
           
         </form>
@@ -43,4 +43,28 @@
         </div>
       {%endif%}
     </div>
-  </section>
+</section>
+
+
+<script>
+  const emailInput = document.getElementById("email");
+  const emailSubmitButton = document.getElementById("emailSubmitButton");
+
+  const newsletterForm = document.getElementById("newsletterForm");
+
+  newsletterForm.addEventListener("submit", (event) => {
+    
+
+    event.preventDefault();
+  })
+
+
+  emailInput.addEventListener("input", (event) => {
+    const value = event.target.value;
+
+    emailSubmitButton.disabled = !(value.length && value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/));
+  })
+
+
+
+</script>
