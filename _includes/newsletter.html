@@ -73,7 +73,7 @@
     const value = emailInput.value;
 
     if(validEmail(value)){
-      const statusCode = await fetch("https://pt7csthrgg.execute-api.us-east-1.amazonaws.com/weissqa/newsletter", {method: 'POST', body: JSON.stringify({email: value}), headers: {'Content-Type': 'application/json'}})
+      const statusCode = await fetch("https://35pmypbkr0.execute-api.us-east-1.amazonaws.com/weiss/newsletter", {method: 'POST', body: JSON.stringify({email: value}), headers: {'Content-Type': 'application/json'}})
       .then((res) => res.status);
 
 
