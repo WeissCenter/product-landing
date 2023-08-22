@@ -38,19 +38,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: 'dev'
+          fetch-depth: 0
       - name: Install dependencies (Dev)
         run: npm ci
-      - name: Build Site (Dev)
-        run: npm run clean && npm run build && cd _site && zip -r ../dev.zip * && cd ..
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          ref: 'main'
-      - name: Install dependencies (Prod)
-        run: npm ci
-      - name: Build Site (Prod)
-        run: npm run clean && npm run build && unzip dev.zip -d ./_site/dev/
+      - name: Build Site 
+        run: npm run clean && git checkout dev && npm run build && cd _site && zip -r ../dev.zip * -x \"*.DS_Store\" && cd .. && git checkout main && npm run build && unzip dev.zip -d ./_site/dev/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
