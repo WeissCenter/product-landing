@@ -27,7 +27,7 @@ to modify some of the meta-data for the site, this is the place to do it.
 
     {% if project.environment == 'prod' %}
       <base href="https://weisscenter.github.io/product-landing/">
-    {% elseif project.environment == 'dev' %}
+    {% elsif project.environment == 'dev' %}
       <base href="https://weisscenter.github.io/product-landing/dev/">
     {% else %}
       <base href="http://localhost:8080/product-landing/">
