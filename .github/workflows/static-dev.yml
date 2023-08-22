@@ -40,12 +40,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build Site
-        run: npm run build
+        run: npm run build && mkdir dev && cp -r _site ./dev
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload entire repository
-          path: '_site'
+          path: './dev/_site'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
