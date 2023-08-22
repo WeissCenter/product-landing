@@ -129,6 +129,8 @@ collections:
       - {label: 'Body', i18n: true, name: 'body', widget: 'markdown' }
       - {label: 'Email Field Label', i18n: true, name: 'email', widget: 'string'}
       - {label: 'Subscribe CTA Label', i18n: true, name: 'subscribe', widget: 'string'}
+      - {label: 'Success Message', i18n: true, name: 'success', widget: 'string'}
+      - {label: 'Failed Message', i18n: true, name: 'fail', widget: 'string'}
       - {label: 'Image', name: 'image', i18n: true, widget: 'image'}
       - {label: 'Image Alt Text', name: 'alt', i18n: true, widget: 'string'}
   - label: Footer

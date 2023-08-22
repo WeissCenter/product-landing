@@ -6,6 +6,8 @@ sectionTitle: Sign up to our Newsletter
 subtitle: Stay informed
 email: E-mail
 subscribe: Subscribe
+success: Thank you for signing up!
+fail: Failed to sign up, please try again later.
 image: /static/images/uploads/blob.svg
 alt: newsletter blobule
 ---
