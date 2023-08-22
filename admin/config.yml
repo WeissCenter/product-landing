@@ -129,6 +129,7 @@ collections:
       - {label: 'Body', i18n: true, name: 'body', widget: 'markdown' }
       - {label: 'Email Field Label', i18n: true, name: 'email', widget: 'string'}
       - {label: 'Subscribe CTA Label', i18n: true, name: 'subscribe', widget: 'string'}
+      - {label: 'API URL', i18n: true, name: 'api', widget: 'string', hint: "Enter the api url you would like to use to sign the user up for the newsletter"}
       - {label: 'Success Message', i18n: true, name: 'success', widget: 'string'}
       - {label: 'Failed Message', i18n: true, name: 'fail', widget: 'string'}
       - {label: 'Image', name: 'image', i18n: true, widget: 'image'}
