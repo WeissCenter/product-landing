@@ -14,17 +14,29 @@
   
       <div class="grid-row grid-gap-lg">
   
-        <form class="grid-row width-full tablet:grid-gap-lg" action="">
+        <form id="newsletterForm" class="grid-row width-full tablet:grid-gap-lg" action="">
             <div class="tablet:grid-col-7 grid-col">
                 <label class="usa-label" for="email">{{newsletter.data.email}}</label>
-                <input class="usa-input maxw-full" id="email" name="input-type-text" />
+                <input class="usa-input maxw-full" id="email" type="email" required />
             </div>
 
             <div class="tablet:grid-col-3 flex-align-self-end tablet:margin-top-0 margin-top-1">
-                <button class="usa-button width-full tablet:width-auto">{{newsletter.data.subscribe}}</button>
+                <button disabled id="emailSubmitButton" class="usa-button width-full tablet:width-auto">{{newsletter.data.subscribe}}</button>
             </div>
           
         </form>
+
+        <div id="sign-up-success" style="display: none;" aria-live="assertive" class="grid-row width-full flex-justify-center tablet:grid-gap-lg">
+
+          <span class="text-bold font-heading-lg text-primary-dark margin-top-4">{{newsletter.data.success}}</span>
+
+        </div>
+
+        <div id="sign-up-fail" style="display: none;" aria-live="assertive" class="grid-row width-full flex-justify-center tablet:grid-gap-lg">
+
+          <span class="text-bold font-heading-lg text-emergency margin-top-4">{{newsletter.data.fail}}</span>
+
+        </div>
   
   
       </div>
@@ -43,4 +55,53 @@
         </div>
       {%endif%}
     </div>
-  </section>
+</section>
+
+
+<script>
+  const signUpSuccessContainer = document.getElementById("sign-up-success");
+  const signUpFailContainer = document.getElementById("sign-up-success");
+  const emailInput = document.getElementById("email");
+  const emailSubmitButton = document.getElementById("emailSubmitButton");
+
+  const newsletterForm = document.getElementById("newsletterForm");
+
+  const validEmail = (email) => (email.length && email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/))
+
+  newsletterForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const value = emailInput.value;
+
+    if(validEmail(value)){
+      const statusCode = await fetch("{{newsletter.data.api}}", {method: 'POST', body: JSON.stringify({email: value}), headers: {'Content-Type': 'application/json'}})
+      .then((res) => res.status);
+
+
+      if(statusCode !== 200){
+        // do some error handling
+        newsletterForm.style.display = 'none';
+
+        signUpFailContainer.style.display = 'flex';
+
+        return;
+      }
+
+      newsletterForm.style.display = 'none';
+
+      signUpSuccessContainer.style.display = 'flex';
+
+    }
+
+  
+  })
+
+
+  emailInput.addEventListener("input", (event) => {
+    const value = event.target.value;
+
+    emailSubmitButton.disabled = !validEmail(value);
+  })
+
+
+
+</script>
