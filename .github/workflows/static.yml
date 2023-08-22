@@ -29,8 +29,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Setup Node
@@ -39,8 +37,18 @@ jobs:
           node-version: "18.x"
       - name: Install dependencies
         run: npm ci
-      - name: Build Site
-        run: npm run pages
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: 'dev'
+      - name: Build Site (Dev)
+        run: npm run clean && npm run build && cd _site && zip -r ../dev.zip * && cd ..
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: 'main'
+      - name: Build Site (Prod)
+        run: npm run clean && npm run build && unzip dev.zip -d ./_site/dev/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
