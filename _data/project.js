@@ -1,5 +1,5 @@
 module.exports = function() {
     return {
-      environment: process.env.ENVIRONMENT || "dev"
+      environment: process.env.ENVIRONMENT || "local"
     };
   };
