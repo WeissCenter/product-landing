@@ -128,15 +128,7 @@ module.exports = function (config) {
     html: true,
     breaks: true,
     linkify: true,
-  }).use(markdownItAnchor, {
-    permalink: markdownItAnchor.permalink.ariaHidden({
-      placement: 'after',
-      class: 'direct-link',
-      symbol: '#',
-      level: [1, 2, 3, 4],
-    }),
-    slugify: config.getFilter('slug'),
-  });
+  })
   config.setLibrary('md', markdownLibrary);
 
   // Override Browsersync defaults (used only with --serve)
