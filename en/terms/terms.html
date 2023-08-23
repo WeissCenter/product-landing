@@ -4,9 +4,9 @@ layout: layouts/wide
 title: Accessibility Statement
 ---
 
-{% assign a11yStatements = collections.termsOfService | lang %}
+{% assign termsOfServices = collections.termsOfService | lang %}
 
-{%- for statement in termsOfService -%}
+{%- for statement in termsOfServices -%}
     {% include "statement.html"  %}
 {%endfor%}
 
