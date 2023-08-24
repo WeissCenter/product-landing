@@ -6,5 +6,5 @@ columnTitle: Column Two
 links:
   - Terms of Service
 horizontal: false
-order: 1
+order: 2
 ---
