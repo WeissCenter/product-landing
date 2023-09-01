@@ -387,3 +387,13 @@
   .skip-to-content-link:focus {
     transform: translateY(-40%);
   }
+
+  [data-accessibility-font-size=xlarge]{
+    .data-accessibility-font-size_xlarge\:no-col{
+      flex: inherit;
+      gap: 8px;
+      margin-bottom: 2.6rem;
+   
+    }
+  }
+
