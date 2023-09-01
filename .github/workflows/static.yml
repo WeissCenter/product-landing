@@ -42,7 +42,7 @@ jobs:
       - name: Install dependencies (Dev)
         run: npm ci
       - name: Build Site 
-        run: npm run clean && git checkout dev && export ENVIRONMENT=dev && npm run build && cd _site && zip -r ../dev.zip * -x \"*.DS_Store\" && cd .. && git checkout main && export ENVIRONMENT=prod && npm run build && unzip dev.zip -d ./_site/dev/
+        run: npm run clean && git checkout dev && export ENVIRONMENT=dev && npm run build && cd _site && zip -r ../dev.zip * -x \"*.DS_Store\" && cd .. && git stash push --include-untracked && git stash drop && git checkout main && export ENVIRONMENT=prod && npm run build && unzip dev.zip -d ./_site/dev/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
