@@ -231,6 +231,36 @@ collections:
       - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
       - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['termsOfService']}
       - {label: 'Terms', i18n: true, name: 'body', widget: 'markdown'}
+  - label: Factsheet
+    name: factsheet
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/factsheet/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['factsheet']}
+      - {label: 'Body', i18n: true, name: 'body', widget: 'markdown'}
+  - label: Security
+    name: security
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/security/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['security']}
+      - {label: 'Body', i18n: true, name: 'body', widget: 'markdown'}
+  - label: Licensing
+    name: licensing
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/licensing/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['licensing']}
+      - {label: 'Body', i18n: true, name: 'body', widget: 'markdown'}
 
 
   # - label: Testimonials
