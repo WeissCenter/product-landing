@@ -1,0 +1,13 @@
+---
+permalink: /en/security/index.html
+layout: layouts/wide
+title: Security Statement
+---
+
+{% assign a11ySecuritys = collections.security | lang %}
+
+{%- for statement in a11ySecuritys -%}
+    {% include "statement.html"  %}
+{%endfor%}
+
+

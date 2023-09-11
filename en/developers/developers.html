@@ -1,0 +1,13 @@
+---
+permalink: /en/developers/index.html
+layout: layouts/wide
+title: Developers
+---
+
+{% assign devStatements = collections.developers | lang %}
+
+{%- for statement in devStatements -%}
+    {% include "statement.html"  %}
+{%endfor%}
+
+

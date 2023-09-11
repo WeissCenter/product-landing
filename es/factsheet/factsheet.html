@@ -1,0 +1,13 @@
+---
+permalink: /es/factsheet/index.html
+layout: layouts/wide
+title: Factsheet Statement
+---
+
+{% assign a11yFactsheets = collections.factsheet | lang %}
+
+{%- for statement in a11yFactsheets -%}
+    {% include "statement.html"  %}
+{%endfor%}
+
+

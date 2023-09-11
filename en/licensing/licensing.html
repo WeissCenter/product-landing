@@ -1,0 +1,13 @@
+---
+permalink: /en/licensing/index.html
+layout: layouts/wide
+title: Licensing Statement
+---
+
+{% assign a11yLicensings = collections.licensing | lang %}
+
+{%- for statement in a11yLicensings -%}
+    {% include "statement.html"  %}
+{%endfor%}
+
+
