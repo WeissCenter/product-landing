@@ -1,0 +1,13 @@
+---
+permalink: /es/roadmap/index.html
+layout: layouts/wide
+title: Roadmap Statement
+---
+
+{% assign a11yRoadmaps = collections.roadmap | lang %}
+
+{%- for statement in a11yRoadmaps -%}
+    {% include "statement.html"  %}
+{%endfor%}
+
+

@@ -271,6 +271,16 @@ collections:
       - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
       - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['developers']}
       - {label: 'Body', i18n: true, name: 'body', widget: 'markdown'}
+  - label: Roadmap
+    name: roadmap
+    create: true
+    i18n: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    folder: content/roadmap/
+    fields:
+      - {label: 'Title', i18n: true, name: 'title', widget: 'string' }
+      - {label: 'Tags', i18n: true, name: 'tags', widget: 'hidden', default: ['roadmap']}
+      - {label: 'Body', i18n: true, name: 'body', widget: 'markdown'}
 
 
   # - label: Testimonials
